@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Basic -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>Vigor Hiperbóreo - Calculadora de TMB, GET, IMC e Macronutrientes</title>
+    <link rel="stylesheet" href="css/calculadora.css">
+    <script src="js/calculadora.js" defer></script>
+    
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet">
+  <!-- Custom styles for this template -->
+  
+  <!-- responsive style -->
+  
+  
+</head>
+
+
+<body>
+
+  <div class="botao">
+    <button><a class="nav-link" href="index.html"> Menu </menu></a>
+    </button>
+  </div>
+    <main>
+        <section>
+            <h1>Calcule sua TMB, seu GET, IMC e Macronutrientes</h1>
+            <form action="" id="calculadora">
+                <div> 
+                    <input type="radio" name="sexo" id="homem" value="homem" required>
+                    <label for="homem">Homem</label>
+                </div>
+                <div>
+                    <input type="radio" name="sexo" id="mulher" value="mulher" required>
+                    <label for="mulher">Mulher</label>
+                </div>
+                <div>
+                    <label for="peso">Peso<br></label>
+                    <input type="number" name="peso" id="peso" placeholder="Ex: 70" min="0" step="0.01">
+                    <p class="cinza">(em quilos)</p>
+                </div>
+                <div>
+                    <label for="altura">Altura<br></label>
+                    <input type="number" name="altura" id="altura" placeholder="Ex: 175" min="0" step="0.01">
+                    <p class="cinza">(em centímetros)</p>
+                </div>
+                <div>
+                    <label for="idade">Idade<br></label>
+                    <input type="number" name="idade" id="idade" placeholder="Ex: 18" min="0">
+                </div>
+                <h3>Estilo de vida:</h3>
+                <div>
+                    <input type="radio" name="gastocalorico" id="sedentario" value="sedentario" required>
+                    <label for="sedentario">Sedentário <span class="cinza">(Exercícios mínimos)</span></label>
+                </div>
+                <div>
+                    <input type="radio" name="gastocalorico" id="leve" value="leve" required>
+                    <label for="leve">Levemente Ativo <span class="cinza">(Exercícios 1-3 dias por semana)</span></label>
+                </div>
+                <div>
+                    <input type="radio" name="gastocalorico" id="moderado" value="moderado" required>
+                    <label for="moderado">Moderadamente Ativo <span class="cinza">(Exercícios 3-5 dias por semana)</span></label>
+                </div>
+                <div>
+                    <input type="radio" name="gastocalorico" id="ativo" value="ativo" required>
+                    <label for="ativo">Muito Ativo <span class="cinza">(Exercícios 6-7 dias por semana)</span></label>
+                </div>
+                <div>
+                    <input type="radio" name="gastocalorico" id="atleta" value="atleta" required>
+                    <label for="atleta">Extremamente Ativo <span class="cinza">(Atleta, exercícios 2x por dia)</span></label>
+                </div>
+                <h3>Objetivo:</h3>
+                <div>
+                    <input type="radio" name="objetivo" id="cutting" value="cutting" required>
+                    <label for="cutting">Perder peso <span class="cinza">(Cutting)</span></label>
+                </div>
+                <div>
+                    <input type="radio" name="objetivo" id="manterpeso" value="manterpeso" required>
+                    <label for="manterpeso">Manter peso</label>
+                </div>
+                <div>
+                    <input type="radio" name="objetivo" id="bulking" value="bulking" required>
+                    <label for="bulking">Ganhar peso <span class="cinza">(Bulking)</span></label>
+                </div>
+                    <button type="submit">Calcular</button>
+            </form>
+            <p id="error">Digite valores válidos!</p>
+            <p id="resultadotmb" class="resultado"></p>
+            <table>
+                <tr>
+                    <th>IMC</th>
+                    <th>Classificação</th>
+                </tr>
+                <tr>
+                    <td>Menor que 18,5</td>
+                    <td>Magreza</td>
+                </tr>
+                <tr>
+                    <td>18,5 a 24,9</td>
+                    <td>Normal</td>
+                </tr>
+                <tr>
+                    <td>25 a 29,9</td>
+                    <td>Sobrepeso</td>
+                </tr>
+                <tr>
+                    <td>30 a 34,9</td>
+                    <td>Obesidade grau I</td>
+                </tr>
+                <tr>
+                    <td>35 a 39,9</td>
+                    <td>Obesidade grau II</td>
+                </tr>
+                <tr>
+                    <td>Maior que 40</td>
+                    <td>Obesidade grau III</td>
+                </tr>
+            </table>
+            <p id="obs">Observação: o cálculo de IMC não leva em consideração a composição corporal. Por esse motivo, pessoas com muita massa muscular, como é o caso de alguns atletas, podem apresentar um IMC acima do normal.</p>
+            <h2>Divida seus macronutrientes</h2>
+            <form action="" id="calculadoramacros">
+                <h3>Proteínas <span class="cinza">(4 calorias por grama)</span></h3>
+                    <div>
+                        <input type="radio" name="proteina" id="umseis" value="1.6" required>
+                        <label for="umseis">1.6 gramas de proteína por kg</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="proteina" id="umoito" value="1.8" required>
+                        <label for="umoito">1.8 gramas de proteína por kg</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="proteina" id="dois" value="2" required>
+                        <label for="dois">2 gramas de proteína por kg</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="proteina" id="proteinapersonalizada" value="0" required>
+                        <input type="number" name="numeroproteina" id="numeroproteina" min="0" step="0.01">
+                        <label for="proteinapersonalizada">quantidade personalizada de gramas por kg</label>
+                    </div>
+                <h3>Gordura <span class="cinza">(9 calorias por grama)</span></h3>
+                    <div>
+                        <input type="radio" name="gordura" id="zerocinco" value="0.5" required>
+                        <label for="zerocinco">0.5 gramas de gordura por kg</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gordura" id="zerosete" value="0.7" required>
+                        <label for="zerosete">0.7 gramas de gordura por kg</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gordura" id="umgrama" value="1" required>
+                        <label for="umgrama">1 gramas de gordura por kg</label>
+                    </div>
+                    <div>
+                        <input type="radio" name="gordura" id="gordurapersonalizada" value="0" required>
+                        <input type="number" name="numerogordura" id="numerogordura" min="0" step="0.01">
+                        <label for="gordurapersonalizada">quantidade personalizada de gramas por kg</label>
+                    </div>
+                <h3>Carboidrato <span class="cinza">(4 calorias por grama)</span></h3>
+                <p>A quantidade de carboidratos é definida com o restante do gasto calórico subtraindo as proteínas e gorduras.</p>
+                    <button type="submit">Calcular</button>
+            </form>
+            <p id="resultadomacros" class="resultado"></p>
+    </main>
+</body>
+</html>
+
+  <!-- end contact section -->
+
+  <!-- info section -->
+  <section class="info_section layout_padding2">
+    <div class="container">
+      <div class="info_items">
+        <a href="">
+          <div class="item ">
+            <div class="img-box box-1">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <p>
+                Locação
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="">
+          <div class="item ">
+            <div class="img-box box-2">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <p>
+                +55 11 95130-1835
+              </p>
+            </div>
+          </div>
+        </a>
+        <a href="">
+          <div class="item ">
+            <div class="img-box box-3">
+              <img src="" alt="">
+            </div>
+            <div class="detail-box">
+              <p>
+                vigorhiperbório@gmail.com
+              </p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- end info_section -->
+
+  <!-- footer section -->
+  <footer class="container-fluid footer_section">
+    <p>
+      
+      <a href="https://html.design/">vigor Hiperbóreo</a>
+    </p>
+  </footer>
+  <!-- footer section -->
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/bootstrap.js"></script>
+
+</body>
+
+</html>
